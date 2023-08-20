@@ -5,11 +5,14 @@ const cartSlice = createSlice({
     initialState : [],
     reducers:{
         addItem:(state , action)=>{
-            state = [...state , action.payload]
+            // ...Spread out the old items
+            // state is imutable we cant change it
+            state.push(action.payload)
+
         }
     }
 })
 
-export const {addItem} = createSlice.actions; 
+export const {addItem} = cartSlice.actions; 
 
-export default createSlice.reducers;
+export default cartSlice.reducer;
